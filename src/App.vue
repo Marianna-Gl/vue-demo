@@ -3,12 +3,23 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import {ref} from 'vue'
 let count= ref(0);
+let secondCount=ref(0);
 function increment(){
 count.value++;
 }
 function decrement(){
 count.value--;
 }
+function decrementByTen(){
+   count.value= count.value-10;
+}
+function incrementByTen(){
+count.value= count.value+10;
+}
+function reset(){
+  count.value=0;
+}
+
 </script>
 
 <template>
@@ -23,9 +34,12 @@ count.value--;
   <main>
     <TheWelcome />
 
-    <button @click="decrement()">-</button>
+    <button @click="decrementByTen()">-10</button>
+    <button @click="decrement()">-1</button>
     <span>{{ count}}</span>
-    <button @click="increment()">+</button>
+    <button @click="increment()">+1</button>
+     <button @click="incrementByTen()">+10</button>
+    <button @click="reset()">reset</button>
   </main>
 </template>
 
