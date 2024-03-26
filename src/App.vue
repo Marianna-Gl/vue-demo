@@ -1,6 +1,14 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import {ref} from 'vue'
+let count= ref(0);
+function increment(){
+count.value++;
+}
+function decrement(){
+count.value--;
+}
 </script>
 
 <template>
@@ -14,6 +22,10 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <TheWelcome />
+
+    <button @click="decrement()">-</button>
+    <span>{{ count}}</span>
+    <button @click="increment()">+</button>
   </main>
 </template>
 
