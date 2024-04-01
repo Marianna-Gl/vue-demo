@@ -2,13 +2,25 @@
 export default {
   data() {
     return {
-      mode: 'AMD', // Initial mode
-      amount: '' // Input value
+      formattedIrp: null,
+      mode: 'AMD',
+      amount: '',
+      disabled: true,
+      numberInput: null,
+      updatedValue: null
     }
   },
+
   methods: {
     toggleMode() {
       this.mode = this.mode === 'AMD' ? 'USD' : 'AMD'
+    },
+    updateValue() {
+      if (this.numberInput !== null && this.mode !== 'AMD') {
+        this.updatedValue = this.numberInput * 400
+      } else {
+        this.updatedValue = this.numberInput / 400
+      }
     }
   }
 }
@@ -18,30 +30,27 @@ export default {
   {{ Exchange }}
 
   <div>
-    <h2>{{ mode === 'AMD' ? 'AMD -> USD' : 'USD -> AMD' }}</h2>
+    <h1 class="a">{{ mode === 'AMD' ? 'AMD -> USD' : 'USD -> AMD' }}</h1>
     <div>
-      <input type="text" @input="typeCurrency" />
-      <input type="text" @input="typeCurrency" />
+      <input v-model="numberInput" @input="updateValue" />
+      <input :value="updatedValue" :disabled="disabled" />
     </div>
-    <!-- <input type="text" v-model="amount" /> -->
-    <button @click="toggleMode">{{ mode !== 'AMD' ? 'AMD -> USD' : 'USD -> AMD' }}</button>
+
+    <button @click="toggleMode" class="bb">
+      {{ mode !== 'AMD' ? 'AMD -> USD' : 'USD -> AMD' }}
+    </button>
   </div>
-
-  <!-- Display the current conversion mode -->
-  <!-- <p v-if="mode === 'amd-to-usd'">Conversion Mode: AMD to USD</p>
-    <p v-else>Conversion Mode: USD to AMD</p> -->
-
-  <!-- Display the conversion component based on the mode -->
-  <!-- <div v-if="mode === 'amd-to-usd'">
-      <p>Convert AMD to USD</p> -->
-  <!-- Your conversion component for AMD to USD -->
-  <!-- </div>
-    <div v-else>
-      <p>Convert USD to AMD</p> -->
-  <!-- Your conversion component for USD to AMD -->
-  <!-- </div>
-  </button>
-  -->
 </template>
 
-<style scoped></style>
+<style scoped>
+.bb {
+  padding-right: 47px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 7px;
+}
+.a {
+  color: blue;
+}
+</style>
