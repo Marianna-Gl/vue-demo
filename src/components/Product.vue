@@ -4,28 +4,25 @@ import Price from './Price.vue'
 import Description from './Description.vue'
 
 export default {
+  name: 'Product',
   components: {
     Name,
     Price,
     Description
   },
   props: {
-    value: string,
-    name: String,
-    price: Number,
-    description: String,
-    fruit: Object
+    fruit: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>
 
-
 <template>
-    <div><Name :value="'name' />
-        <Price :value='price' />
-        <Description :value='description' /></div>
- 
-    {{ value }}
-
+  <div class="product">
+    <Name :name="fruit.name" />
+    <Price :price="fruit.price" />
+    <Description :description="fruit.description" />
+  </div>
 </template>
-<style scoped></style>
