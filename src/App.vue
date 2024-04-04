@@ -1,21 +1,48 @@
 <script>
-import Exchange from './components/Exchange.vue'
-
+import Product from './components/Product.vue'
 
 export default {
   components: {
-    Exchange
+    Product
   },
   data() {
-    return {}
+    return {
+      fruits: [
+        {
+          name: 'apple',
+          price: '3$',
+          description: 'Golden apples from Armenia'
+        },
+        {
+          name: 'pear',
+          price: '3.4$',
+          description: 'Sweet pears'
+        },
+        {
+          name: 'cherry',
+          price: '2.6$',
+          description: 'Sour red cherries'
+        },
+        {
+          name: 'lemon',
+          price: '4$',
+          description: 'Big Chinese lemons'
+        },
+        {
+          name: 'banana',
+          price: '3.7$',
+          description: 'Fresh bananas from Ecuador'
+        }
+      ]
+    }
   },
-  methods: {}
+
 }
 </script>
 
 <template>
-  <Exchange />
-  <div></div>
+  <Product />
+  <div v-for="fruit of fruits">{{ fruit }}</div>
 </template>
 
 <style scoped></style>
