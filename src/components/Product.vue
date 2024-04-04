@@ -4,7 +4,6 @@ import Price from './Price.vue'
 import Description from './Description.vue'
 
 export default {
-  name: 'Product',
   components: {
     Name,
     Price,

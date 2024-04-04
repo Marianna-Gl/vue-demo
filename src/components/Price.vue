@@ -1,6 +1,5 @@
 <script>
 export default {
-  name: 'Price',
   props: {
     price: {
       type: String,

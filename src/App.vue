@@ -1,8 +1,7 @@
 <script>
-import Product from './components/Product.vue';
+import Product from './components/Product.vue'
 
 export default {
-  name: 'App',
   components: {
     Product
   },
@@ -18,7 +17,7 @@ export default {
           name: 'pear',
           price: '3.4$',
           description: 'Sweet pears'
-        }
+        },
         {
           name: 'cherry',
           price: '2.6$',
@@ -33,16 +32,14 @@ export default {
           name: 'banana',
           price: '3.7$',
           description: 'Fresh bananas from Ecuador'
-        },
+        }
       ]
-      
-    };
+    }
   }
-};
+}
 </script>
 <template>
-  <div id="app">
+  <div>
     <Product v-for="(fruit, index) in fruits" :key="index" :fruit="fruit" />
   </div>
 </template>
-<style scoped></style>

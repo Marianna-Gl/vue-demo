@@ -1,6 +1,5 @@
 <script>
 export default {
-  name: 'Name',
   props: {
     name: {
       type: String,

@@ -1,13 +1,12 @@
 <script>
 export default {
-  name: 'Description',
   props: {
     description: {
       type: String,
       required: true
     }
   }
-};
+}
 </script>
 
 <template>
