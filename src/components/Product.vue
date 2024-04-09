@@ -14,6 +14,11 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    submitCur() {
+      this.$emit('submitCur', this.price)
+    }
   }
 }
 </script>

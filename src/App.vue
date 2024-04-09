@@ -35,11 +35,23 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    submitCur(price) {
+      console.log(price)
+    }
   }
 }
 </script>
 <template>
+  <price submitCur="submitCur" />
+
   <div>
     <Product v-for="(fruit, index) in fruits" :key="index" :fruit="fruit" />
+  </div>
+  <div>
+    <h2>{{ name }}</h2>
+    <Price :price="price" @toggleCurrency="toggleCurrency" />
+    <p>{{ description }}</p>
   </div>
 </template>
